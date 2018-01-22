@@ -289,6 +289,9 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
 		handle_message_distance_sensor(msg);
 		break;
 
+	case MAVLINK_MSG_ID_OBSTACLE_DISTANCE:
+		handle_message_obstacle_distance(msg);
+
 	case MAVLINK_MSG_ID_FOLLOW_TARGET:
 		handle_message_follow_target(msg);
 		break;
@@ -783,6 +786,18 @@ MavlinkReceiver::handle_message_distance_sensor(mavlink_message_t *msg)
 	} else {
 		orb_publish(ORB_ID(distance_sensor), _distance_sensor_pub, &d);
 	}
+}
+
+void
+MavlinkReceiver::handle_message_obstacle_distance(mavlink_message_t *msg)
+{
+	mavlink_obstacle_distance_t obst_dist;
+	mavlink_msg_obstacle_distance_decode(msg, &obst_dist);
+
+	for (int i=0; i<72; i++) {
+		printf("%d ", obst_dist.distances[i]);
+	}
+	printf("\n");
 }
 
 void
