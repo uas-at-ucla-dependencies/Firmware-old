@@ -30,18 +30,15 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 ############################################################################
-px4_add_module(
-	MODULE drivers__boards__nxphlite-v3
-	SRCS
-		nxphlite_autoleds.c
-		nxphlite_automount.c
-		nxphlite_can.c
-		nxphlite_init.c
-		nxphlite_led.c
-		nxphlite_sdhc.c
-		nxphlite_spi.c
-		nxphlite_timer_config.c
-		nxphlite_usb.c
-	DEPENDS
-		platforms__common
-	)
+
+px4_add_library(drivers_board
+	kinetis_autoleds.c
+	kinetis_automount.c
+	kinetis_can.c
+	kinetis_init.c
+	kinetis_led.c
+	kinetis_sdhc.c
+	kinetis_spi.c
+	kinetis_timer_config.c
+	kinetis_usb.c
+)

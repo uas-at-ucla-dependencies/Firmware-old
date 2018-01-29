@@ -30,15 +30,12 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 ############################################################################
-px4_add_module(
-	MODULE drivers__boards__aerocore2
-	SRCS
-		aerocore2_can.c
-		aerocore2_init.c
-		aerocore2_timer_config.c
-		aerocore2_spi.c
-		aerocore2_usb.c
-		aerocore2_led.c
-	DEPENDS
-		platforms__common
-	)
+
+px4_add_library(drivers_board
+	stm32_can.c
+	stm32_init.c
+	stm32_led.c
+	stm32_spi.c
+	stm32_timer_config.c
+	stm32_usb.c
+)

@@ -30,16 +30,13 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 ############################################################################
-px4_add_module(
-	MODULE drivers__boards__px4nucleoF767ZI-v1
-	SRCS
-#		WIP px4nucleo_can.c
-		px4nucleo_init.c
-		px4nucleo_sdio.c
-		px4nucleo_timer_config.c
-		px4nucleo_spi.c
-		px4nucleo_usb.c
-		px4nucleo_led.c
-	DEPENDS
-		platforms__common
-	)
+
+px4_add_library(drivers_board
+	# stm32_can.c # WIP
+	stm32_init.c
+	stm32_led.c
+	stm32_sdio.c
+	stm32_spi.c
+	stm32_timer_config.c
+	stm32_usb.c
+)
