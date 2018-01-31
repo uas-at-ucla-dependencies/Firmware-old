@@ -101,6 +101,7 @@ static bool autosave_disabled = false;
 /**
  * Array of static parameter info.
  */
+// TODO: enable static_assert's...
 static const struct param_info_s *param_info_base = (const struct param_info_s *) &px4_parameters;
 #define	param_info_count px4_parameters.param_count
 
@@ -822,6 +823,11 @@ param_used(param_t param)
 
 	return param_changed_storage[param_index / bits_per_allocation_unit] &
 	       (1 << param_index % bits_per_allocation_unit);
+}
+
+void param_set_used(param_t param)
+{
+	param_set_used_internal(param);
 }
 
 void param_set_used_internal(param_t param)
