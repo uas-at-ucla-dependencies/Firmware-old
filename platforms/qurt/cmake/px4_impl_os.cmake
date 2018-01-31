@@ -237,7 +237,7 @@ function(px4_os_prebuild_targets)
 			REQUIRED OUT BOARD
 			ARGN ${ARGN})
 
-	add_custom_target(${OUT} DEPENDS git_driverframework uorb_headers)
+	add_custom_target(${OUT} DEPENDS git_driverframework uorb_headers parameter_headers)
 
 endfunction()
 
