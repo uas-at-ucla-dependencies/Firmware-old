@@ -120,9 +120,11 @@ bool PositionControl::_interfaceMapping()
 	// States and setpoints which are integrals of the reference setpoint are set to 0.
 	// For instance: reference is velocity-setpoint -> position and position-setpoint = 0
 	//               reference is thrust-setpoint -> position, velocity, position-/velocity-setpoint = 0
+	PX4_WARN("inteface mapping...");
 	for (int i = 0; i <= 2; i++) {
 
 		if (PX4_ISFINITE(_pos_sp(i))) {
+			PX4_WARN("position control");
 			// Position control is required
 
 			if (!PX4_ISFINITE(_vel_sp(i))) {
@@ -135,6 +137,13 @@ bool PositionControl::_interfaceMapping()
 
 			// to run position control, we require valid position and velocity
 			if (!PX4_ISFINITE(_pos(i)) || !PX4_ISFINITE(_vel(i))) {
+				if (!PX4_ISFINITE(_pos(i)) {
+					PX4_WARN("position not valid!");
+				}
+				if (!PX4_ISFINITE(_vel(i)) {
+					PX4_WARN("velocity not valid!");
+				}
+
 				failsafe = true;
 			}
 
