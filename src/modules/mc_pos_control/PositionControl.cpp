@@ -137,10 +137,10 @@ bool PositionControl::_interfaceMapping()
 
 			// to run position control, we require valid position and velocity
 			if (!PX4_ISFINITE(_pos(i)) || !PX4_ISFINITE(_vel(i))) {
-				if (!PX4_ISFINITE(_pos(i)) {
+				if (!PX4_ISFINITE(_pos(i))) {
 					PX4_WARN("position not valid!");
 				}
-				if (!PX4_ISFINITE(_vel(i)) {
+				if (!PX4_ISFINITE(_vel(i))) {
 					PX4_WARN("velocity not valid!");
 				}
 
