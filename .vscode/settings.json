@@ -87,6 +87,5 @@
         "workbench.editor.enablePreviewFromQuickOpen": false,
         "workbench.editor.highlightModifiedTabs": true,
         "workbench.settings.enableNaturalLanguageSearch": false,
-        "workbench.statusBar.feedback.visible": false,
-        "ros.distro": "melodic"
+        "workbench.statusBar.feedback.visible": false
 }
